@@ -12,11 +12,29 @@ const AccordionSection = styled.div`
     height:100vh;
     background:#fff;
 `;
+const Container = styled.div`
+    position: absolute;
+    width:100%;
+    top: 10%;
+`;
+const Logo = styled.div`
+    margin:0;
+    max-width:905px;
+    text-align:left;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 64px;
+    line-height:87px;
+    color: rgba(0,0,0,1);
+`
 
 const Accordion = () => {
     return (
         <AccordionSection>
-             cct acccordion
+            <Container>
+                <Logo>CCT LAB Process</Logo>
+                cct acccordion
+            </Container>
         </AccordionSection>
     )
 }
