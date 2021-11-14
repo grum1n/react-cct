@@ -27,6 +27,23 @@ const Logo = styled.div`
     line-height:87px;
     color: rgba(0,0,0,1);
 `
+const WrapContainer = styled.div`
+    padding:10px;
+    background:#fff;
+`
+const WrapDiv = styled.div`
+    background:#fff;
+    padding:0;
+    color:rgba(14,42,53,1);
+    position:relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+    width:100%;
+    text-align:center;
+    cursor:pointer;
+    box-shadow: 0 0 20px #c5c5c5;
+`
 
 const Accordion = () => {
     return (
@@ -35,10 +52,12 @@ const Accordion = () => {
                 <Logo>CCT LAB Process</Logo>
                 {Data.map((item, index) => {
                     return (
-                        <>
-                            <span>{item.number}</span>
-                            <h1>{item.title}</h1>
-                        </>
+                        <WrapContainer>
+                            <WrapDiv>
+                                <span>{item.number}</span>
+                                <h1>{item.title}</h1>
+                            </WrapDiv>
+                        </WrapContainer>
                         )
                 })}
                 
