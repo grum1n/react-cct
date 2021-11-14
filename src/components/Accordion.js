@@ -82,7 +82,51 @@ const Wrap = styled.div`
     }
   
 `;
+const Dropdown = styled.div`
+    padding: 20px 30px;
+    margin:10px;
+    font-family: 'Roboto', sans-serif;
+    font-size:18px;
+    font-weight: 400;
+    color:#0e2a35;
+    with:100%;
+    max-height: 100%;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:flex-start;
+    
+    div{
+        display:flex;
+        align-items:center;
+        margin:10px;
+    }
+    span{
+        width: 19px;
+        height:19px;
+        border: 1px solid rgba(0,169,127,1);
+        border-radius: 50%;
+        position:relative;
+    }
+    span img {
+        position:absolute;
+        left:2px;
+        bottom:2px;
+    }
+    
 
+`;
+
+const DropdownLine = styled.p`
+    margin:0;
+    padding-left: 20px;
+    text-align:left;
+
+    a, a:hover, a:active{
+    text-decoration:none;
+    color: rgba(0,169,127,1);
+    }
+`;
 
 
 const Accordion = () => {
@@ -94,11 +138,22 @@ const Accordion = () => {
                     return (
                         <WrapContainer>
                             <WrapDiv>
-                                <Wrap>
+                                <Wrap 
+                                    key={index}
+                                >
                                     <span>{item.number}</span>
                                     <h1>{item.title}</h1>
                                 </Wrap>
                             </WrapDiv>
+                            <Dropdown>
+                                        {item.content.map((ans) => (
+                                            <div>
+                                                <span><img src={Image} /></span>
+                                                <DropdownLine>{ans.text} <a href={`mailto:${ans.email}`}>{ans.email}</a>
+                                                </DropdownLine>
+                                            </div>
+                                        ))}
+                                    </Dropdown>
                         </WrapContainer>
                         )
                 })}
