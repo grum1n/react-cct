@@ -33,7 +33,15 @@ const Accordion = () => {
         <AccordionSection>
             <Container>
                 <Logo>CCT LAB Process</Logo>
-                cct acccordion
+                {Data.map((item, index) => {
+                    return (
+                        <>
+                            <span>{item.number}</span>
+                            <h1>{item.title}</h1>
+                        </>
+                        )
+                })}
+                
             </Container>
         </AccordionSection>
     )
