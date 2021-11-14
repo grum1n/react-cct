@@ -5,11 +5,11 @@ export const Data = [
         content: [
             {
                 text: 'Create repository',
-                email: 'blabla@cornercasetech.com'
+                email: ''
             },
             {
-                text:'Implementdesigns',
-                email: 'xxx@ggg.com'
+                text:'Implement designs',
+                email: ''
             },
             {
                 text: 'Implement functionality',
@@ -26,8 +26,8 @@ export const Data = [
                 email: ''
             },
             { 
-                text: 'Open email client',
-                email: "carerrs@cornercasetech.com"
+                text: 'Sent link with information to',
+                email: 'careers@cornercasetech.com'
             }
         ]
     },
@@ -36,12 +36,12 @@ export const Data = [
         title: 'Participate in tech interview',
         content: [
             { 
-                text: 'Open email client',
+                text: 'Talk with HR',
                 email: ''
             },
             { 
-                text: 'Open email client',
-                email: "carerrs@cornercasetech.com"
+                text: 'Talk with Tech team',
+                email: ''
             }
         ]
     },
@@ -50,12 +50,12 @@ export const Data = [
         title: 'Receive answer',
         content: [
             { 
-                text: 'Open email client',
+                text: 'Receive answers',
                 email: ''
             },
             { 
-                text: 'Open email client',
-                email: ""
+                text: 'Start your It carrer',
+                email: ''
             }
         ]
     }
