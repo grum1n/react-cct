@@ -16,6 +16,10 @@ linear-gradient(180deg, #00A9A7 0%, #00BA89 100%);
 
 install:
 npm i styled-components
-npm i react-icons
+
+img :
+Path2337.png
+
+
 
 
