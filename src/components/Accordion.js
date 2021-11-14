@@ -44,6 +44,17 @@ const WrapDiv = styled.div`
     cursor:pointer;
     box-shadow: 0 0 20px #c5c5c5;
 `
+const BorderSize = '200px';
+
+const Fake = styled.div`
+    border-bottom:3px solid  rgba(0,169,127,1);
+    width: ${BorderSize};
+    height: 100px;
+    top:0;
+    left:0;
+    transition: .4s;
+`
+
 const Wrap = styled.div`
     background:#fff;
     padding:16px 30px;
@@ -116,7 +127,6 @@ const Dropdown = styled.div`
     
 
 `;
-
 const DropdownLine = styled.p`
     margin:0;
     padding-left: 20px;
@@ -130,6 +140,16 @@ const DropdownLine = styled.p`
 
 
 const Accordion = () => {
+    const [clicked, setClicked] = useState(false);
+
+    const toggle = index => {
+        if(clicked === index) {
+            return setClicked(null);
+        }
+        setClicked(index);
+       
+    }
+
     return (
         <AccordionSection>
             <Container>
@@ -138,14 +158,17 @@ const Accordion = () => {
                     return (
                         <WrapContainer>
                             <WrapDiv>
+                                <Fake />
                                 <Wrap 
+                                    onClick={() => toggle(index)} 
                                     key={index}
                                 >
                                     <span>{item.number}</span>
                                     <h1>{item.title}</h1>
                                 </Wrap>
                             </WrapDiv>
-                            <Dropdown>
+                                {clicked === index ? (
+                                    <Dropdown>
                                         {item.content.map((ans) => (
                                             <div>
                                                 <span><img src={Image} /></span>
@@ -154,10 +177,10 @@ const Accordion = () => {
                                             </div>
                                         ))}
                                     </Dropdown>
+                                ) : null }
                         </WrapContainer>
-                        )
+                    )
                 })}
-                
             </Container>
         </AccordionSection>
     )
