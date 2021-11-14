@@ -54,7 +54,6 @@ const Fake = styled.div`
     left:0;
     transition: .4s;
 `
-
 const Wrap = styled.div`
     background:#fff;
     padding:16px 30px;
@@ -141,13 +140,36 @@ const DropdownLine = styled.p`
 
 const Accordion = () => {
     const [clicked, setClicked] = useState(false);
+    const [borderBottomSize, setSize] = useState(BorderSize);
+
+    const borderbottomId = 'border-bottom-id';
+
+    const changeSize = index => {
+        const borderLines = document.getElementsByClassName(borderbottomId);
+
+        Array.from(borderLines).forEach(function(element) {
+            if (element.getAttribute('id') != borderbottomId + index) {
+                element.style.width = '200px';
+            }
+        });
+
+        const borderLine = document.getElementById(borderbottomId + index);
+        if (borderLine.style.width == '200px') {
+            borderLine.style.width = '300px';
+        } else {
+            borderLine.style.width = '200px';
+        }
+    }
 
     const toggle = index => {
         if(clicked === index) {
-            return setClicked(null);
+            return(
+                setClicked(null),
+                changeSize(index)
+            );
         }
         setClicked(index);
-       
+        changeSize(index);
     }
 
     return (
@@ -158,7 +180,11 @@ const Accordion = () => {
                     return (
                         <WrapContainer>
                             <WrapDiv>
-                                <Fake />
+                                <Fake 
+                                    style={{ width: borderBottomSize }}
+                                    id={`${borderbottomId}${index}`}
+                                    className={borderbottomId}
+                                />
                                 <Wrap 
                                     onClick={() => toggle(index)} 
                                     key={index}
